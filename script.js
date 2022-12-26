@@ -5,12 +5,11 @@ var itemPrice = document.getElementById("item-price-input");
 var tbody = document.querySelector("tbody");
 
 var grandTotal = document.getElementById("total");
-var totalSoFar = 0;
+var grand_total = 0;
 
 var addItem = document.querySelector("#add");
 
 addItem.addEventListener("click", (event) => {
-
   event.preventDefault();
 
   let newRow = document.createElement("tr");
@@ -29,7 +28,6 @@ addItem.addEventListener("click", (event) => {
   quantity.innerText = itemQuantity.value;
   newRow.append(quantity);
 
-
   if (itemName.value && itemQuantity.value && itemPrice.value) {
     let total = document.createElement("td");
     total.innerText = itemPrice.value * itemQuantity.value;
@@ -37,10 +35,9 @@ addItem.addEventListener("click", (event) => {
 
     tbody.append(newRow);
 
-    totalSoFar += Number(total.innerText);
-    grandTotal.innerHTML = "Grand Total: ₹" + totalSoFar;
+    grand_total += Number(total.innerText);
+    grandTotal.innerHTML = "Grand Total: ₹ " + grand_total;
   }
-
 
   itemName.value = "";
   itemQuantity.value = "";
